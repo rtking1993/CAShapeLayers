@@ -16,16 +16,11 @@ class ShapeViewController: UIViewController {
     // MARK: Variables
     
     var shapes: [CAShapeLayer] = []
-    var currentShape: CAShapeLayer? {
-        didSet {
-            shapeView.layer.sublayers?.removeAll()
-            shapeView.layer.addSublayer(currentShape!)
-        }
-    }
-    
     var index: Int = 0 {
         didSet {
-            currentShape = shapes[index]
+            let currentShape = shapes[index]
+            shapeView.layer.sublayers?.removeAll()
+            shapeView.layer.addSublayer(currentShape)
         }
     }
 
@@ -37,8 +32,7 @@ class ShapeViewController: UIViewController {
         shapes = [shapeCreator(bezierPath: UIBezierPath(homeIn: shapeView.bounds)),
                   shapeCreator(bezierPath: UIBezierPath(addIn: shapeView.bounds)),
                   shapeCreator(bezierPath: UIBezierPath(profileIn: shapeView.bounds)),
-                  shapeCreator(bezierPath: UIBezierPath(searchIn: shapeView.bounds)),
-                  shapeCreator(bezierPath: UIBezierPath(heartIn: shapeView.bounds))]
+                  shapeCreator(bezierPath: UIBezierPath(searchIn: shapeView.bounds))]
         
         index = 0
     }
