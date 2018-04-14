@@ -42,6 +42,20 @@ extension UIBezierPath {
         close()
     }
     
+    convenience init(heartIn rect: CGRect) {
+        self.init()
+        
+        let sideOne = rect.width * 0.4
+        let sideTwo = rect.height * 0.3
+        let arcRadius = sqrt(sideOne*sideOne + sideTwo*sideTwo)/2
+        
+        addArc(withCenter: CGPoint(x: rect.width * 0.3, y: rect.height * 0.35), radius: arcRadius, startAngle: 135.degreesToRadians, endAngle: 315.degreesToRadians, clockwise: true)
+        addLine(to: CGPoint(x: rect.width/2, y: rect.height * 0.2))
+        addArc(withCenter: CGPoint(x: rect.width * 0.7, y: rect.height * 0.35), radius: arcRadius, startAngle: 225.degreesToRadians, endAngle: 45.degreesToRadians, clockwise: true)
+        addLine(to: CGPoint(x: rect.width * 0.5, y: rect.height * 0.95))
+        close()
+    }
+    
     convenience init(addIn rect: CGRect) {
         self.init()
         

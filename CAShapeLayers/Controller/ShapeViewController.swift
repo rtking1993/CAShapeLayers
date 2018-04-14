@@ -37,7 +37,8 @@ class ShapeViewController: UIViewController {
         shapes = [shapeCreator(bezierPath: UIBezierPath(homeIn: shapeView.bounds)),
                   shapeCreator(bezierPath: UIBezierPath(addIn: shapeView.bounds)),
                   shapeCreator(bezierPath: UIBezierPath(profileIn: shapeView.bounds)),
-                  shapeCreator(bezierPath: UIBezierPath(searchIn: shapeView.bounds))]
+                  shapeCreator(bezierPath: UIBezierPath(searchIn: shapeView.bounds)),
+                  shapeCreator(bezierPath: UIBezierPath(heartIn: shapeView.bounds))]
         
         index = 0
     }
