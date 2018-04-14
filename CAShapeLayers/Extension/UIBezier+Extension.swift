@@ -35,7 +35,7 @@ extension UIBezierPath {
         addArc(withCenter: CGPoint(x: circleRadius + lineWidth, y: circleRadius + lineWidth),
                radius: circleRadius,
                startAngle: 0,
-               endAngle: 360.degreesToRadians,
+               endAngle: radians(from: 360),
                clockwise: true)
         move(to: CGPoint(x: 2*(circleRadius - lineWidth), y: 2*(circleRadius - lineWidth)))
         addLine(to: CGPoint(x: rect.width, y: rect.height))
@@ -62,13 +62,13 @@ extension UIBezierPath {
         addArc(withCenter: CGPoint(x: rect.width * 0.5, y: smallCircleRadius + lineWidth),
                radius: smallCircleRadius,
                startAngle: 0,
-               endAngle: 360.degreesToRadians,
+               endAngle: radians(from: 360),
                clockwise: true)
         move(to: CGPoint(x: 0, y: rect.height))
         addArc(withCenter: CGPoint(x: rect.width * 0.5, y: rect.height),
                radius: largeCircleRadius - 2*lineWidth,
-               startAngle: 180.degreesToRadians,
-               endAngle: 0.degreesToRadians,
+               startAngle: radians(from: 180),
+               endAngle: radians(from: 0),
                clockwise: true)
         move(to: CGPoint(x: rect.width, y: rect.height))
         close()
